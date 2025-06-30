@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBI Most Wanted - Headhunters</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-blue-900 text-white text-center py-6">
+        <h1 class="text-4xl font-bold">FBI Most Wanted - Headhunters</h1>
+        <p class="mt-2 text-lg">Capture the fugitives and claim your reward!</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Criminal 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <img src="images/criminal1.jpg" alt="Criminal 1" class="w-full h-64 object-cover rounded">
+                <h2 class="text-2xl font-bold mt-4">Cyclops Carl</h2>
+                <p class="text-gray-600 mt-2">Age: 65, Weight: 300 lbs, Known for: Bank heists with a signature eye patch. Last seen in Chicago.</p>
+                <p class="text-green-600 font-semibold mt-2">Reward: $100,000</p>
+                <button onclick="openClaimModal('Cyclops Carl', 100000)" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Claim Reward</button>
+            </div>
+
+            <!-- Criminal 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <img src="images/criminal2.jpg" alt="Criminal 2" class="w-full h-64 object-cover rounded">
+                <h2 class="text-2xl font-bold mt-4">Patchy Pete</h2>
+                <p class="text-gray-600 mt-2">Age: 70, Weight: 320 lbs, Known for: Smuggling rare artifacts. Last seen in Miami.</p>
+                <p class="text-green-600 font-semibold mt-2">Reward: $150,000</p>
+                <button onclick="openClaimModal('Patchy Pete', 150000)" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Claim Reward</button>
+            </div>
+
+            <!-- Criminal 3 -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <img src="images/criminal3.jpg" alt="Criminal 3" class="w-full h-64 object-cover rounded">
+                <h2 class="text-2xl font-bold mt-4">Winky Walter</h2>
+                <p class="text-gray-600 mt-2">Age: 68, Weight: 310 lbs, Known for: Cyber fraud with a single eye. Last seen in Las Vegas.</p>
+                <p class="text-green-600 font-semibold mt-2">Reward: $200,000</p>
+                <button onclick="openClaimModal('Winky Walter', 200000)" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Claim Reward</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Claim Form -->
+    <div id="claimModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg w-full max-w-md">
+            <h2 id="modalTitle" class="text-2xl font-bold mb-4">Claim Reward</h2>
+            <form id="claimForm" onsubmit="handleClaimSubmit(event)">
+                <div class="mb-4">
+                    <label for="proofImage" class="block text-gray-700">Upload Proof of Capture (Image)</label>
+                    <input type="file" id="proofImage" accept="image/*" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="location" class="block text-gray-700">Location of Fugitive</label>
+                    <input type="text" id="location" class="w-full p-2 border rounded" placeholder="e.g., 123 Main St, Chicago, IL" required>
+                </div>
+                <div class="mb-4">
+                    <label for="btcAddress" class="block text-gray-700">BTC Address for Reward</label>
+                    <input type="text" id="btcAddress" class="w-full p-2 border rounded" placeholder="e.g., bc1q..." required>
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" onclick="closeClaimModal()" class="bg-gray-500 text-white px-4 py-2 rounded mr-2 hover:bg-gray-600">Cancel</button>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Submit Claim</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
